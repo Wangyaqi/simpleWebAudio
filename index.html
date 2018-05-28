@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<meta name="viewport" content="width=750,minimum-scale=0.2,maximum-scale=2,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/simpleWebAudio.js"></script>
+		<title>标题</title>
+	</head>
+
+	<body>
+		<div class="view">
+			<div class="content">
+				<div class="block">
+					当前SimpleWebAudioManager状态：<span id="state"></span>
+				</div>
+			</div>
+		</div>
+		<script>
+			var au_1 = new simpleWebAudio("sound/drum.mp3"),
+				au_2 = new simpleWebAudio("sound/C4.mp3", {
+					loop: true
+				});
+			au_2.play();
+			setInterval(function() {
+				au_1.play();
+				document.getElementById("state").innerText = window.simpleWebAudioManager.context.state;
+			}, 1000);
+		</script>
+	</body>
+
+</html>
